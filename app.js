@@ -1,8 +1,10 @@
 // Importa el módulo WASM generado
 import init, { resize, grayscale, blur, invert, brighten, flip_horizontal, rotate90 } from './img_processor/pkg/img_processor.js';
 
+import wasmUrl from './img_processor/pkg/img_processor_bg.wasm?url'
+
 async function main() {
-  const wasmModule = await fetch('./img_processor/pkg/img_processor_bg.wasm');
+  const wasmModule = await fetch(wasmUrl);
   await init(await wasmModule.arrayBuffer());
   
   const fileInput = document.getElementById('imageInput');

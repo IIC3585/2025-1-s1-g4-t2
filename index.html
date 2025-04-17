@@ -41,14 +41,6 @@
   </div>
   <script type="module" src="app.js"></script>
   <script>
-    // Registro del Service Worker para funcionamiento offline
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register(`${import.meta.env.BASE_URL}service-worker.js`)
-          .then(reg => console.log('Service Worker registrado:', reg))
-          .catch(err => console.error('Error al registrar SW:', err));
-      });
-    }
   </script>
 </body>
 </html>
