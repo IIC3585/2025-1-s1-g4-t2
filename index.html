@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Image Processor PWA</title>
+  <link rel="manifest" href="/2025-1-s1-g4-t2/assets/manifest-Dg8NqOob.json" />
+  <meta name="theme-color" content="#4CAF50" />
+  <script type="module" crossorigin src="/2025-1-s1-g4-t2/assets/index-BhUeKtaf.js"></script>
+  <link rel="stylesheet" crossorigin href="/2025-1-s1-g4-t2/assets/index-CCZPAF4N.css">
+</head>
+<body>
+  <div class="phone-wrapper">
+    <div class="phone-screen">
+      <header>
+        <h1>Image Processor PWA</h1>
+      </header>
+      <main>
+        <section id="upload-section">
+          <input type="file" id="imageInput" accept="image/*" />
+          <img id="preview" alt="Vista Previa" style="display: none;" />
+        </section>
+        <section id="controls">
+          <select id="filterSelect">
+            <option value="none">Selecciona un filtro</option>
+            <option value="resize">Resize (200x200)</option>
+            <option value="grayscale">Grayscale</option>
+            <option value="blur">Blur (sigma 5.0)</option>
+            <option value="invert">Invert</option>
+            <option value="brighten">Brighten (+30)</option>
+            <option value="flip_horizontal">Flip Horizontal</option>
+            <option value="rotate90">Rotate 90°</option>
+          </select>
+          <button id="applyFilter">Aplicar Filtro</button>
+          <button id="saveImage">Guardar Imagen</button>
+        </section>
+        <section id="result-section">
+          <canvas id="resultCanvas"></canvas>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script>
+    // Registro del Service Worker para funcionamiento offline
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register(`${import.meta.env.BASE_URL}service-worker.js`)
+          .then(reg => console.log('Service Worker registrado:', reg))
+          .catch(err => console.error('Error al registrar SW:', err));
+      });
+    }
+  </script>
+</body>
+</html>
