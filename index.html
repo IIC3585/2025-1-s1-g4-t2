@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,6 +9,7 @@
   <link rel="stylesheet" href="./style.css" />
   <meta name="theme-color" content="#4CAF50" />
 </head>
+
 <body>
   <div class="phone-wrapper">
     <div class="phone-screen">
@@ -15,32 +17,41 @@
         <h1>Image Processor PWA</h1>
       </header>
       <main>
-        <section id="upload-section">
-          <input type="file" id="imageInput" accept="image/*" />
-          <img id="preview" alt="Vista Previa" style="display: none;" />
+        <section id="mainView">
+          <section id="upload-section">
+            <input type="file" id="imageInput" accept="image/*" />
+            <img id="preview" alt="Vista Previa" style="display: none;" />
+          </section>
+          <section id="controls">
+            <select id="filterSelect">
+              <option value="none">Selecciona un filtro</option>
+              <option value="resize">Resize (200x200)</option>
+              <option value="grayscale">Grayscale</option>
+              <option value="blur">Blur (sigma 5.0)</option>
+              <option value="invert">Invert</option>
+              <option value="brighten">Brighten (+30)</option>
+              <option value="flip_horizontal">Flip Horizontal</option>
+              <option value="rotate90">Rotate 90°</option>
+            </select>
+            <button id="applyFilter">Aplicar Filtro</button>
+            <button id="saveImage">Guardar Imagen</button>
+            <button id="loadImage">Ver imagenes guardadas en IndexedDB</button>
+          </section>
+          <section id="result-section">
+            <canvas id="resultCanvas"></canvas>
+          </section>
         </section>
-        <section id="controls">
-          <select id="filterSelect">
-            <option value="none">Selecciona un filtro</option>
-            <option value="resize">Resize (200x200)</option>
-            <option value="grayscale">Grayscale</option>
-            <option value="blur">Blur (sigma 5.0)</option>
-            <option value="invert">Invert</option>
-            <option value="brighten">Brighten (+30)</option>
-            <option value="flip_horizontal">Flip Horizontal</option>
-            <option value="rotate90">Rotate 90°</option>
-          </select>
-          <button id="applyFilter">Aplicar Filtro</button>
-          <button id="saveImage">Guardar Imagen</button>
-        </section>
-        <section id="result-section">
-          <canvas id="resultCanvas"></canvas>
+        <section id="image-display">
+          <h2 id="savedImagesTitle">Imagenes guardadas</h2>
+          <p>Haz clic en una imagen para volver a cargarla a la app</p>
+          <div id="imageContainer">
+          </div>
+          <button id="goBack">Volver</button>
         </section>
       </main>
     </div>
   </div>
   <script type="module" src="app.js"></script>
-  <script>
-  </script>
 </body>
+
 </html>
