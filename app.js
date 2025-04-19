@@ -164,6 +164,13 @@ async function main() {
             fileInput.files = dataTransfer.files;
             fileInput.dispatchEvent(new Event('change'));
 
+            // Reset the resultCanvas
+            const resultCanvas = document.getElementById('resultCanvas');
+            const ctx = resultCanvas.getContext('2d');
+            resultCanvas.width = 300; // Default width
+            resultCanvas.height = 150; // Default height
+            ctx.clearRect(0, 0, resultCanvas.width, resultCanvas.height);
+
             // Trigger the goBack event
             document.getElementById('goBack').click();
           });
