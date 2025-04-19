@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://artaudd.github.io/T2-WebAvanzado-Fork/",
+  "homepage": "https://iic3585.github.io/2025-1-s1-g4-t2/",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
